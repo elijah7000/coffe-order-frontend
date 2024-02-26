@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="container" style="background-color: #7f8fa6">
+    <div class="navigation">
+      <nav class="navMenu">
+        <li class="logo"><a href="index.html">Coffee Order System</a></li>
+        <li class="orderCheck"><a href="/orderStatus.html">Order Status</a></li>
+      </nav>
+    </div>
+    <div class="orderCheck">
+      <h1>Order Placed:</h1>
+      <h1 id="orderId">Order Id</h1>
+      <h1 id="condiments">condiments:</h1>
+      <h1 id="totalCost">Total:</h1>
+    </div>
+  </body>
+  <script>
+    const orderId = "123";
+    const condiments = "Milk Mocha";
+    const totalCost = "$4.50";
+    document.getElementById("orderId").textContent = "Order Id: " + orderId;
+    document.getElementById("condiments").textContent =
+      "Condiments: " + condiments;
+    document.getElementById("totalCost").textContent = "Total: " + totalCost;
+  </script>
+</html>

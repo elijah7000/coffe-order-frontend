@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="container" style="background-color: #7f8fa6">
+    <div class="navigation">
+      <nav class="navMenu">
+        <li class="logo"><a href="index.html">Coffee Order System</a></li>
+        <li class="orderCheck"><a href="/orderStatus.html">Order Status</a></li>
+      </nav>
+    </div>
+    <div class="mainWrapper">
+      <div class="addCondiments">
+        <div class="title"><h1>Add the condiments</h1></div>
+        <div class="selectBtn">
+          <div class="btn">
+            <button class="btnlist" onclick="addCondiments('milk')">
+              Milk
+            </button>
+            <button class="btnlist" onclick="addCondiments('mocha')">
+              Mocha
+            </button>
+          </div>
+          <div class="btn">
+            <button class="btnlist" onclick="addCondiments('soy')">Soy</button>
+            <button class="btnlist" onclick="addCondiments('whip')">
+              Whip
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="myOrderContainer">
+        <div class="myOrderWrapper">
+          <h1 class="myOrderTitle">My Order</h1>
+          <ul id="selected_Beverage"></ul>
+          <button class="beverageBtn">
+            <a href="orderStatus.html">Confirm Order</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function addCondiments(condiments) {
+      let selectedBeverage = document.getElementById("selected_Beverage");
+      if (checkCondiments(selectedBeverage, condiments)) {
+        removeCondiment(selectedBeverage, condiments);
+      } else {
+        const li = document.createElement("li");
+        li.textContent = condiments;
+        selectedBeverage.appendChild(li);
+
+        li.addEventListener("click", function () {
+          selectedBeverage.removeChild(li);
+        });
+      }
+    }
+    function checkCondiments(ul, condiment) {
+      let listItems = ul.getElementsByTagName("li");
+      for (let i = 0; i < listItems.length; i++) {
+        if (
+          listItems[i].textContent.toLowerCase() === condiment.toLowerCase()
+        ) {
+          return true;
+        }
+      }
+      return false;
+    }
+    function removeCondiment(ul, condiment) {
+      let listItems = ul.getElementsByTagName("li");
+      for (let i = 0; i < listItems.length; i++) {
+        if (
+          listItems[i].textContent.toLowerCase() === condiment.toLowerCase()
+        ) {
+          ul.removeChild(listItems[i]);
+          return;
+        }
+      }
+    }
+  </script>
+</html>

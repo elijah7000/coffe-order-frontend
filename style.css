@@ -1,0 +1,110 @@
+/* index.html */
+a {
+  text-decoration-line: none;
+  color: inherit;
+}
+
+.container {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.navMenu {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+  list-style: none;
+  padding: 20px;
+}
+
+.logo {
+  color: #e1b12c;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.orderBtn {
+  padding: 50px;
+  font-size: 30px;
+  border-radius: 15px;
+}
+
+/* slsectMenu */
+
+.beverage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+  flex-direction: column;
+}
+
+.btn {
+  padding: 20px;
+}
+
+.btnlist {
+  padding: 30px;
+  font-size: 50px;
+  width: 500px;
+  margin-right: 50px;
+  border-radius: 15px;
+}
+
+/* condiments */
+
+.mainWrapper {
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 100px;
+}
+
+.addCondiments {
+  text-align: center;
+}
+
+.myOrderWrapper {
+  border: 5px solid black;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 50px;
+}
+
+.myOrderWrapper li {
+  font-size: 30px;
+  list-style: none;
+  border: 3px solid black;
+  padding: 20px;
+  background-color: #e1b12c;
+  cursor: pointer;
+}
+
+.myOrderTitle {
+  font-size: 30px;
+}
+
+.beverageBtn {
+  list-style-type: none;
+  display: flex;
+}
+.beverageBtn button {
+  padding: 20px 40px;
+}
+
+/* orderStatus */
+
+.orderCheck {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+}

@@ -10,6 +10,7 @@
     <div class="navigation">
       <nav class="navMenu">
         <li class="logo"><a href="index.html">Coffee Order System</a></li>
+        <li class="right"><a href="login.html">Login</a></li>
         <li class="orderCheck"><a href="/orderStatus.html">Order Status</a></li>
       </nav>
     </div>
@@ -17,20 +18,47 @@
       <div class="title"><h1>Select the beverage</h1></div>
       <div class="selectBtn">
         <div class="btn">
-          <button class="btnlist">
-            <a href="condiments.html">Dark Roast</a>
+          <button class="btnlist" onclick="sendBeverage('Dark Roast')">
+            Dark Roast
           </button>
-          <button class="btnlist">
-            <a href="condiments.html"> Espresso</a>
+          <button class="btnlist" onclick="sendBeverage('Espresso')">
+            Espresso
           </button>
         </div>
         <div class="btn">
-          <button class="btnlist">
-            <a href="condiments.html">House Blend</a>
+          <button class="btnlist" onclick="sendBeverage('House Blend')">
+            House Blend
           </button>
-          <button class="btnlist"><a href="condiments.html">Decaf</a></button>
+          <button class="btnlist" onclick="sendBeverage('Decaf')">Decaf</button>
         </div>
       </div>
     </div>
+
+    <script>
+      function sendBeverage(beverage) {
+        let data = { beverage: beverage };
+
+        // Send the data to the backend using fetch
+        fetch("http://localhost:2040/orders/add", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => {
+            if (response.ok) {
+              alert("Beverage order submitted successfully!");
+              window.location.href = "/orderStatus.html"; //
+            } else {
+              throw new Error("Failed to submit beverage order");
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("An error occurred. Please try again.");
+          });
+      }
+    </script>
   </body>
 </html>
